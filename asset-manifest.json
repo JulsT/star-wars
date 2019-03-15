@@ -1,15 +1,15 @@
 {
-  "main.css": "/JulsT/star-wars/static/css/main.cab9226d.chunk.css",
-  "main.js": "/JulsT/star-wars/static/js/main.7d231e2c.chunk.js",
-  "main.js.map": "/JulsT/star-wars/static/js/main.7d231e2c.chunk.js.map",
-  "runtime~main.js": "/JulsT/star-wars/static/js/runtime~main.791c51f2.js",
-  "runtime~main.js.map": "/JulsT/star-wars/static/js/runtime~main.791c51f2.js.map",
-  "static/css/2.03756c1a.chunk.css": "/JulsT/star-wars/static/css/2.03756c1a.chunk.css",
-  "static/js/2.5b7b31f2.chunk.js": "/JulsT/star-wars/static/js/2.5b7b31f2.chunk.js",
-  "static/js/2.5b7b31f2.chunk.js.map": "/JulsT/star-wars/static/js/2.5b7b31f2.chunk.js.map",
-  "index.html": "/JulsT/star-wars/index.html",
-  "precache-manifest.6499a51ce00058a7cab41855ce629086.js": "/JulsT/star-wars/precache-manifest.6499a51ce00058a7cab41855ce629086.js",
-  "service-worker.js": "/JulsT/star-wars/service-worker.js",
-  "static/css/2.03756c1a.chunk.css.map": "/JulsT/star-wars/static/css/2.03756c1a.chunk.css.map",
-  "static/css/main.cab9226d.chunk.css.map": "/JulsT/star-wars/static/css/main.cab9226d.chunk.css.map"
+  "main.css": "/star-wars/static/css/main.cab9226d.chunk.css",
+  "main.js": "/star-wars/static/js/main.3e6b7adf.chunk.js",
+  "main.js.map": "/star-wars/static/js/main.3e6b7adf.chunk.js.map",
+  "runtime~main.js": "/star-wars/static/js/runtime~main.6cf174e3.js",
+  "runtime~main.js.map": "/star-wars/static/js/runtime~main.6cf174e3.js.map",
+  "static/css/2.03756c1a.chunk.css": "/star-wars/static/css/2.03756c1a.chunk.css",
+  "static/js/2.5b7b31f2.chunk.js": "/star-wars/static/js/2.5b7b31f2.chunk.js",
+  "static/js/2.5b7b31f2.chunk.js.map": "/star-wars/static/js/2.5b7b31f2.chunk.js.map",
+  "index.html": "/star-wars/index.html",
+  "precache-manifest.004e809dd5de2ba33e24a60fd4267b9f.js": "/star-wars/precache-manifest.004e809dd5de2ba33e24a60fd4267b9f.js",
+  "service-worker.js": "/star-wars/service-worker.js",
+  "static/css/2.03756c1a.chunk.css.map": "/star-wars/static/css/2.03756c1a.chunk.css.map",
+  "static/css/main.cab9226d.chunk.css.map": "/star-wars/static/css/main.cab9226d.chunk.css.map"
 }
