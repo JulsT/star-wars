@@ -4,34 +4,56 @@ import NavBar from "./components/NavBar/NavBar";
 import PlanetSlider from "./components/PlanetSlider/PlanetSlider";
 import { getData } from "./utils/callApi";
 import MainContainer from "./components/MainContainer";
-
+import ErrorBoundary from "./components/Error/Error";
 class App extends Component {
   state = {
-    planets: []
+    planets: [],
+    hasError: false
   };
   async componentDidMount() {
-    const data = await getData("/planets");
+    try {
+      const data = await getData("/planets");
+      this.setState({
+        planets: data.results
+      });
+    } catch (error) {
+      console.log("Error", error);
+      this.setState({
+        hasError: true
+      });
+    }
+  }
+  componentDidCatch() {
     this.setState({
-      planets: data.results
+      hasError: true
     });
   }
   render() {
+    const { hasError } = this.state;
+
     return (
       <React.Fragment>
         <main className="container p-3">
-          <NavBar />
-          <PlanetSlider planets={this.state.planets} />
+          {hasError ? (
+            <ErrorBoundary />
+          ) : (
+            <>
+              <NavBar />
+              <PlanetSlider planets={this.state.planets} />
 
-          <Switch>
-            {["/people", "/planets", "/starships"].map((path, index) => (
-              <Route
-                path={path}
-                render={props => <MainContainer {...props} />}
-                key={index}
-              />
-            ))}
-            <Redirect from="/" exact to="/people" />
-          </Switch>
+              <Switch>
+                {["/people", "/planets", "/starships"].map((path, index) => (
+                  <Route
+                    path={path}
+                    render={props => <MainContainer {...props} />}
+                    key={index}
+                  />
+                ))}
+                <Redirect from="/" exact to="/people" />
+                <Redirect to="/" />
+              </Switch>
+            </>
+          )}
         </main>
       </React.Fragment>
     );

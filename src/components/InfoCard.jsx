@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { PropTypes } from "prop-types";
+
 class InfoCard extends Component {
-  state = {};
   render() {
     const { selectedItem, imageUrl } = this.props;
     return (
@@ -38,5 +39,10 @@ class InfoCard extends Component {
     );
   }
 }
+
+InfoCard.propTypes = {
+  selectedItem: PropTypes.arrayOf(PropTypes.object).isRequired,
+  imageUrl: PropTypes.string.isRequired
+};
 
 export default InfoCard;

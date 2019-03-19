@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import { showImage } from "../../utils/callApi";
-import Spinner from "../Spinner";
+import Spinner from "../Spinner/Spinner";
+import PropTypes from "prop-types";
 class PlanetSlider extends Component {
   state = {
     planets: this.props.planets,
     intervalId: null,
     randomId: 0,
-    imageUrl: ""
+    imageUrl: "",
+    hasError: false
   };
-  static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps) {
     return {
-      planets: nextProps.planets
+      planets: nextProps.planets,
+      loading: false
     };
   }
   componentDidMount() {
@@ -28,6 +31,7 @@ class PlanetSlider extends Component {
   };
   getRandomPlanet = async () => {
     const randomId = Math.floor(Math.random() * this.state.planets.length);
+    // const randomId = 12000;
     const imageUrl = await showImage("/planets", randomId + 2);
     this.setState({
       randomId,
@@ -69,5 +73,8 @@ class PlanetSlider extends Component {
     );
   }
 }
+PlanetSlider.propTypes = {
+  planets: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default PlanetSlider;

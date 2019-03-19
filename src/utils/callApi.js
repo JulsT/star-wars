@@ -2,12 +2,19 @@ const apiUrl = "https://swapi.co/api";
 const baseImageUrl = "https://starwars-visualguide.com/assets/img";
 
 export async function getData(endpoint, id = "") {
-  try {
-    const response = await fetch(`${apiUrl}${endpoint}${id}`);
-    return response.json();
-  } catch (error) {
-    console.log("error", error);
+  const response = await fetch(`${apiUrl}${endpoint}${id}`);
+  if (!response.ok) {
+    throw new Error("Couldnt fetch");
   }
+  return await response.json();
+  // try {
+  //   const response = await fetch(`${apiUrl}${endpoint}${id}`);
+  //   console.log("response", response.ok);
+  //   return response.json();
+  // } catch (error) {
+  //   // console.log("error in callApi", error);
+  //   throw new Error("throw new Error in callApi");
+  // }
 }
 export function getId(url) {
   const regular = /\/([0-9]*)\/$/;

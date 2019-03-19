@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getData } from "../utils/callApi";
+import { PropTypes } from "prop-types";
 class ListItems extends Component {
   state = {
     data: [],
@@ -7,12 +8,16 @@ class ListItems extends Component {
     previous: ""
   };
   async componentDidMount() {
-    const data = await getData(this.props.match.path);
-    this.setState({
-      data: data.results,
-      next: data.next,
-      previous: data.previous
-    });
+    try {
+      const data = await getData(this.props.match.path);
+      this.setState({
+        data: data.results,
+        next: data.next,
+        previous: data.previous
+      });
+    } catch (error) {
+      console.log("error in ListItems", error);
+    }
   }
   async componentDidUpdate(prevProps) {
     if (this.props.match.path !== prevProps.match.path) {
@@ -37,7 +42,6 @@ class ListItems extends Component {
         );
     }
   };
-
   render() {
     const { data, next, previous } = this.state;
     const { getInfoCard } = this.props;
@@ -71,7 +75,6 @@ class ListItems extends Component {
                   Previous
                 </button>
               </li>
-
               <li
                 className={next === null ? "page-item disabled" : "page-item"}
               >
@@ -90,4 +93,10 @@ class ListItems extends Component {
   }
 }
 
+ListItems.propTypes = {
+  getInfoCard: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired
+  })
+};
 export default ListItems;
